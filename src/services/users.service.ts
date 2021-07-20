@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { UserDto } from '../dto/req/user.dto';
+import { UserDto } from '../dto/user.input';
 
 import { delay } from '../utils';
 import { User } from '../models';

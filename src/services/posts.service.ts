@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { PostDto } from '../dto/req/post.dto';
+import { NewPostInput } from '../dto/post.input';
 import { delay } from '../utils/index';
 
 import { Post } from '../models';
@@ -13,7 +13,7 @@ export class PostsService {
     { id: 'post-4', title: 'Post 4', body: 'Lorem 4', userId: 3 }
   ];
 
-  async create(data: PostDto): Promise<Post> {
+  async create(data: NewPostInput): Promise<Post> {
     await delay(300);
     return {
       id: 'test',

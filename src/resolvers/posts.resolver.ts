@@ -1,7 +1,7 @@
 import { NotFoundException } from '@nestjs/common';
 import { Args, Context, Mutation, Parent, Query, ResolveField, Resolver } from '@nestjs/graphql';
 import * as DataLoader from 'dataloader';
-import { PostDto } from '../dto/req/post.dto';
+import { NewPostInput } from '../dto/post.input';
 
 import { User, Post } from '../models';
 
@@ -25,10 +25,10 @@ export class PostsResolver {
     return result;
   }
 
-  // @Mutation(() => Post)
-  // createPost(@Args('newPostData') newPostData: PostDto): Promise<Post> {
-  //   return this.postsService.create(newPostData);
-  // }
+  @Mutation(() => Post)
+  createPost(@Args('NewPostInput') newPostInput: NewPostInput): Promise<Post> {
+    return this.postsService.create(newPostInput);
+  }
 
   @Mutation(() => Boolean)
   removePost(@Args('id') id: string): Promise<boolean> {
