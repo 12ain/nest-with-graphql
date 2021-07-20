@@ -1,0 +1,28 @@
+root: true
+extends:
+  - '@white-matrix/eslint-config-ts'
+  - plugin:@typescript-eslint/recommended-requiring-type-checking
+env:
+  node: true
+  jest: true
+parserOptions:
+  project: ./tsconfig.json
+rules:
+  class-methods-use-this: 0
+  max-classes-per-file: 0
+  no-useless-constructor: 0
+  no-shadow: 0
+  import/no-unresolved: [2, { ignore: ['/types'] }]
+  import/extensions: [0, { ts: 0, js: 2, json: 2 }]
+  '@typescript-eslint/interface-name-prefix': 0
+settings:
+  import/core-modules:
+    - uuid
+    - dotenv
+    - fastify
+    - fs-extra
+    - '@nestjs/testing'
+overrides:
+  - files: '*.spec.[tj]s'
+    rules:
+      '@typescript-eslint/no-unsafe-call': 0
