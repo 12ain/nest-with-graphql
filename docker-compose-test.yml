@@ -1,0 +1,16 @@
+version: '3.9'
+
+services:
+  mongodb:
+    ports:
+      - 27099:27017
+    container_name: mongodb-test
+    image: mongo:4
+    networks:
+      - prisma-testnet
+    # volumes:
+    #   - ./data/mongo:/data/db
+
+networks:
+  prisma-testnet:
+    driver: bridge
